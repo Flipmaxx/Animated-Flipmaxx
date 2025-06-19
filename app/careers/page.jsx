@@ -141,7 +141,7 @@ export default function Careers() {
             </button>
           </motion.div>
         </div>
-        <CareersPage/>
+        {/* <CareersPage/> */}
       </section>
     </div>
   );

@@ -1,19 +1,24 @@
-import mongoose from "mongoose";
+// lib/dbConnect.js or dbConnect.jsx
+import mongoose from 'mongoose';
 
-export default async function Connection() {
-  try {
-    const URL = process.env.DB_URL + process.env.DB_NAME;
-    console.log("Connecting to:", URL);
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+  throw new Error("Please define MONGODB_URI in your environment");
+}
+
+let cached = global.mongoose || { conn: null, promise: null };
+global.mongoose = cached;
+
+export default async function dbConnect() {
+  if (cached.conn) return cached.conn;
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGODB_URI, {
     
-    const db = await mongoose.connect(URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
     });
-
-    console.log("Database connected");
-    return db;
-  } catch (error) {
-    console.error("Database connection error:", error.message);
-    throw error;
   }
+
+  cached.conn = await cached.promise;
+  return cached.conn;
 }
