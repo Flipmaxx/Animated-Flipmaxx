@@ -60,7 +60,7 @@ export async function POST(req) {
   }
 }
 
-// GET Handler
+
 export async function GET() {
   try {
     await dbConnect();
