@@ -121,18 +121,16 @@ export default function JobDetails() {
     <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
       {job.description}
     </p>
-
-    {/* Details Grid */}
-    <div className=" gap-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+ <div className="flex flex-col sm:flex-row sm:items-center gap-2">
         <h2 className="text-lg sm:text-xl font-medium text-gray-800 dark:text-gray-200">Experience:</h2>
         <span className="text-base font-semibold text-black dark:text-white">{job.experience}</span>
       </div>
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 m">
         <h2 className="text-lg sm:text-xl font-medium text-gray-800 dark:text-gray-200">Location:</h2>
         <span className="text-base font-semibold text-black dark:text-white">{job.location}</span>
       </div>
-    </div>
+   
   </div>
 
   {/* Action Buttons */}

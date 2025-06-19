@@ -58,6 +58,14 @@ export default function Dashboard() {
             <Settings size={18} /> Jobs
           </li>
           </Link>
+
+          
+          <Link href={`/Dashboard/Jobs`}>
+            <li className="flex items-center gap-2 cursor-pointer hover:text-gray-300 mt-7">
+            <Settings size={18} /> carrrers
+          </li>
+          </Link>
+
           <li
             onClick={handleLogout}
             className="flex items-center gap-2 cursor-pointer hover:text-red-400"
