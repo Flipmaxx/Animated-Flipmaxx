@@ -9,7 +9,7 @@ export default function Resumes() {
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 🔐 Auth Check
+ 
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -21,7 +21,6 @@ export default function Resumes() {
     checkAuth();
   }, [router]);
 
-  // 📥 Fetch Data
   useEffect(() => {
     async function fetchCareers() {
       try {
@@ -37,7 +36,6 @@ export default function Resumes() {
     fetchCareers();
   }, []);
 
-  // 📄 View PDF from base64
   const handleViewResume = (base64) => {
     const byteCharacters = atob(base64);
     const byteArrays = [];
@@ -55,7 +53,6 @@ export default function Resumes() {
     window.open(blobUrl, '_blank');
   };
 
-  // ❌ Reject Handler
   const handleReject = async (id, email) => {
     const confirmReject = confirm('Are you sure you want to reject this application?');
     if (!confirmReject) return;
@@ -69,7 +66,6 @@ export default function Resumes() {
     }
   };
 
-  // 🕐 Loading State
   if (loading) return <div className="text-center mt-10 text-xl">Loading...</div>;
 
   return (
@@ -100,7 +96,7 @@ export default function Resumes() {
                 {career.resume ? (
                   <button
                     onClick={() => handleViewResume(career.resume)}
-                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                    className="px-4 py-2 bg-black text-white rounded hover:bg-gray-700"
                   >
                     View Resume
                   </button>
