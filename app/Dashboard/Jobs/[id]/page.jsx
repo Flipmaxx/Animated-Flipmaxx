@@ -15,6 +15,8 @@ export default function JobDetails() {
     experience: '',
     location: '',
   });
+  const [errors, setErrors] = useState({});
+
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -25,6 +27,7 @@ export default function JobDetails() {
     };
     checkAuth();
   }, [router]);
+
   useEffect(() => {
     const fetchJob = async () => {
       try {
@@ -38,15 +41,30 @@ export default function JobDetails() {
     if (id) fetchJob();
   }, [id]);
 
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.position.trim()) newErrors.position = 'Position is required';
+    if (!formData.description.trim()) newErrors.description = 'Description is required';
+    if (!formData.experience.trim()) newErrors.experience = 'Experience is required';
+    if (!formData.location.trim()) newErrors.location = 'Location is required';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
+    setErrors((prev) => ({
+      ...prev,
+      [e.target.name]: '',
+    }));
   };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
     try {
       await axios.put(`/api/job/${id}`, formData);
       setIsEditing(false);
@@ -68,15 +86,15 @@ export default function JobDetails() {
   if (!job) return <div className="p-8 text-center text-gray-600">Loading...</div>;
 
   return (
-    <div className="min-h-full flex items-center justify-center bg-gray-100 px-4 mt-12">
-      <div className="w-full max-w-full bg-white  space-y-6">
+    <div className="min-h-full flex items-center justify-center bg-white px-4 py-8">
+      <div className="w-full max-w-3xl bg-white shadow-2xl rounded-2xl p-8 space-y-6">
         {isEditing ? (
           <>
             <h2 className="text-2xl font-semibold text-gray-800 text-center">Edit Job Details</h2>
             <form onSubmit={handleUpdate} className="space-y-5">
               {['position', 'description', 'experience', 'location'].map((field) => (
                 <div key={field}>
-                  <label className="block text-sm font-medium text-gray-700 capitalize">
+                  <label className="block text-sm font-medium text-gray-700 capitalize mb-1">
                     {field}
                   </label>
                   <input
@@ -84,14 +102,21 @@ export default function JobDetails() {
                     name={field}
                     value={formData[field]}
                     onChange={handleChange}
-                    className="mt-1 block w-full border border-gray-300 rounded-xl px-4 py-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    className={`block w-full border px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 ${
+                      errors[field]
+                        ? 'border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 focus:ring-black'
+                    }`}
                   />
+                  {errors[field] && (
+                    <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
+                  )}
                 </div>
               ))}
               <div className="flex justify-between gap-4 pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition"
+                  className="w-full bg-black text-white py-2 rounded-xl hover:bg-gray-500 transition"
                 >
                   Update
                 </button>
@@ -106,45 +131,32 @@ export default function JobDetails() {
             </form>
           </>
         ) : (
-<div className="w-full max-w-7xl mx-auto bg-white dark:bg-black shadow-2xl rounded-2xl px-6 sm:px-8 py-10 space-y-8">
-  <div className="space-y-6">
-    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white break-words">
-      {job.position}
-    </h1>
-
-    <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-      {job.description}
-    </p>
- <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-        <h2 className="text-lg sm:text-xl font-medium text-gray-800 dark:text-gray-200">Experience:</h2>
-        <span className="text-base font-semibold text-black dark:text-white">{job.experience}</span>
-      </div>
-
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 m">
-        <h2 className="text-lg sm:text-xl font-medium text-gray-800 dark:text-gray-200">Location:</h2>
-        <span className="text-base font-semibold text-black dark:text-white">{job.location}</span>
-      </div>
-   
-  </div>
-
-  <div className="flex flex-wrap justify-start gap-4 pt-8">
-    <button
-      className="bg-white text-black border border-black dark:bg-black dark:text-white dark:border-white px-6 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black transition-all duration-200"
-      onClick={() => setIsEditing(true)}
-    >
-      Edit
-    </button>
-    <button
-      className="bg-black text-white border border-black dark:bg-white dark:text-black dark:border-white px-6 py-2 rounded-xl hover:bg-gray-900 dark:hover:bg-gray-200 transition-all duration-200"
-      onClick={handleDelete}
-    >
-      Delete
-    </button>
-  </div>
-</div>
-
-
-
+          <div className="space-y-6 bg-white  p-7 rounded-xl">
+            <h1 className="text-4xl font-bold text-black dark:text-black">{job.position}</h1>
+            <p className="text-lg text-gray-700 dark:text-gray-900 leading-relaxed">{job.description}</p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <h2 className="text-lg font-medium text-gray-900 dark:text-black">Experience:</h2>
+              <span className="text-base font-semibold text-black dark:text-black">{job.experience}</span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+              <h2 className="text-lg font-medium text-gray-800 dark:text-black">Location:</h2>
+              <span className="text-base font-semibold text-black dark:text-black">{job.location}</span>
+            </div>
+            <div className="flex iytems-end justify-end gap-4 pt-6 p-5">
+              <button
+                onClick={() => setIsEditing(true)}
+                className="bg-black text-white  px-6 py-2 rounded-md hover:bg-black transition"
+              >
+                Edit
+              </button>
+              <button
+                onClick={handleDelete}
+                className="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition"
+              >
+                Delete 
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </div>

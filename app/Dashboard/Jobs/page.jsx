@@ -27,18 +27,15 @@ export default function Jobs() {
     checkAuth();
   }, [router]);
 
-  // ✅ Logout Function
   const handleLogout = async () => {
     try {
       await axios.delete('/api/Auth/login');
-      localStorage.removeItem('token'); // optional: clean token
+      localStorage.removeItem('token');
       router.push('/login');
     } catch (err) {
       console.error('Logout failed', err);
     }
   };
-
-  // Fetch jobs on mount
   useEffect(() => {
     fetchJobs();
   }, []);
@@ -82,8 +79,6 @@ export default function Jobs() {
         
         </div>
       </div>
-
-      {/* Job Cards */}
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
   {jobs.map((job) => (
     <Link href={`/Dashboard/Jobs/${job._id}`} key={job._id}>
@@ -101,8 +96,6 @@ export default function Jobs() {
   ))}
 </div>
 
-
-      {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-full max-w-md relative">
@@ -142,7 +135,7 @@ export default function Jobs() {
               <div>
                 <label className="block font-medium text-gray-700">Experience</label>
                 <input
-                  type="text"
+                  type="number"
                   name="experience"
                   value={formData.experience}
                   onChange={handleChange}
@@ -166,7 +159,7 @@ export default function Jobs() {
               <div className="text-right">
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                  className="bg-black text-white px-4 py-2 rounded hover:bg-gray-600"
                 >
                   Submit
                 </button>
