@@ -64,7 +64,7 @@ export default function CareerForm() {
       setError('');
       setTimeout(() => {
         router.push('/');
-      }, 100);
+      }, 1000);
     } catch (err) {
       setError(err?.response?.data?.message || 'Something went wrong.');
       setSuccess('Error in submission');
