@@ -22,6 +22,25 @@ export default function CareersPage() {
     fetchCareers();
   }, []);
 
+  const handleViewResume = (base64) => {
+    const byteCharacters = atob(base64);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: 'application/pdf' });
+    const blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, '_blank');
+  };
+
   if (loading) return <div className="text-center mt-10 text-xl">Loading...</div>;
 
   return (
@@ -36,7 +55,7 @@ export default function CareersPage() {
               key={career._id}
               className="bg-white shadow-lg rounded-xl p-6 border border-gray-200 text-black"
             >
-              <h2 className="text-xl font-semibold mb-2 text-black">{career.name}</h2>
+              <h2 className="text-xl font-semibold mb-2">{career.name}</h2>
               <p><span className="font-medium">Email:</span> {career.email}</p>
               <p><span className="font-medium">Phone:</span> {career.phone}</p>
               <p><span className="font-medium">Place:</span> {career.place}</p>
@@ -44,14 +63,17 @@ export default function CareersPage() {
               <p><span className="font-medium">Expected CTC:</span> {career.expectedCTC}</p>
               <p><span className="font-medium">Talk:</span> {career.talk}</p>
               <p><span className="font-medium">Submitted At:</span> {new Date(career.submittedAt).toLocaleString()}</p>
-              <a
-                href={career.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-              >
-                View Resume
-              </a>
+
+              {career.resume ? (
+                <button
+                  onClick={() => handleViewResume(career.resume)}
+                  className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  View Resume
+                </button>
+              ) : (
+                <p className="mt-4 text-red-500">No resume uploaded</p>
+              )}
             </div>
           ))}
         </div>
@@ -59,4 +81,3 @@ export default function CareersPage() {
     </div>
   );
 }
- 

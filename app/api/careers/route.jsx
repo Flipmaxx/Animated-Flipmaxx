@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/dbConnect';
-import Careers from '@/Modeles/career.model';
-import { writeFile } from 'fs/promises';
-import path from 'path';
-import { mkdir } from 'fs/promises';
-
+import dbConnect from '../../../lib/dbConnect';
+import Careers from '../../../Modeles/career.model';
 
 export const config = {
   api: {
@@ -12,7 +8,9 @@ export const config = {
   },
 };
 
-// POST Handler
+const MAX_FILE_SIZE = 2 * 1024 * 1024; 
+
+
 export async function POST(req) {
   try {
     await dbConnect();
@@ -32,14 +30,18 @@ export async function POST(req) {
       return NextResponse.json({ success: false, message: 'Resume file is required' }, { status: 400 });
     }
 
+    if (file.type !== 'application/pdf') {
+      return NextResponse.json({ success: false, message: 'Only PDF files are allowed' }, { status: 400 });
+    }
+
+    if (file.size > MAX_FILE_SIZE) {
+      return NextResponse.json({ success: false, message: 'File size exceeds 2MB limit' }, { status: 400 });
+    }
+
+  
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-    await mkdir(uploadDir, { recursive: true });
-
-    const filePath = path.join(uploadDir, file.name);
-    await writeFile(filePath, buffer);
+    const base64File = buffer.toString('base64');
 
     const savedCareer = await Careers.create({
       name,
@@ -48,8 +50,8 @@ export async function POST(req) {
       phone,
       currentCTC,
       expectedCTC,
-      resume: `/uploads/${file.name}`,
       talk,
+      resume: base64File,
       submittedAt: new Date(),
     });
 
@@ -60,7 +62,7 @@ export async function POST(req) {
   }
 }
 
-// GET Handler
+// GET /api/careers
 export async function GET() {
   try {
     await dbConnect();

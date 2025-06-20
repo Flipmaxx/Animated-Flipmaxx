@@ -8,7 +8,7 @@ body {
 }
 @font-face {
   font-family: 'NewAmsterdam';
-  src: url('../public/Fonts/AgeniaMedium-3lxKG.otf') format('truetype');
+  src: url('../public/Fonts/Mulish-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
