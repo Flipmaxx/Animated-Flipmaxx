@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import dbConnect from '../../../lib/dbConnect';
 import Careers from '../../../Modeles/career.model';
 
+
+
 export const config = {
   api: {
     bodyParser: false,
@@ -72,3 +74,4 @@ export async function GET() {
     return NextResponse.json({ error: 'Failed to fetch' }, { status: 500 });
   }
 }
+

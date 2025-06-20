@@ -33,8 +33,8 @@ export default function Postings() {
 
   return (
     <div className="py-20 px-4 sm:px-8">
-      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center text-gray-900 mb-16 leading-tight">
-        Open Positions at Flipmaxx Global LLP
+      <h2 className="text-2xl sm:text-5xl lg:text-3xl font-extrabold text-center text-gray-900 mb-16 leading-tight">
+        Open Positions
       </h2>
 
       {loading ? (

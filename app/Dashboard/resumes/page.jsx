@@ -9,7 +9,7 @@ export default function Resumes() {
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 🔒 Auth Check
+  // 🔐 Auth Check
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -44,7 +44,9 @@ export default function Resumes() {
 
     for (let offset = 0; offset < byteCharacters.length; offset += 512) {
       const slice = byteCharacters.slice(offset, offset + 512);
-      const byteNumbers = new Array(slice.length).fill().map((_, i) => slice.charCodeAt(i));
+      const byteNumbers = new Array(slice.length)
+        .fill()
+        .map((_, i) => slice.charCodeAt(i));
       byteArrays.push(new Uint8Array(byteNumbers));
     }
 
@@ -53,12 +55,26 @@ export default function Resumes() {
     window.open(blobUrl, '_blank');
   };
 
+  // ❌ Reject Handler
+  const handleReject = async (id, email) => {
+    const confirmReject = confirm('Are you sure you want to reject this application?');
+    if (!confirmReject) return;
+
+    try {
+      await axios.delete(`/api/careers/${id}`, { data: { email } }); 
+      setCareers((prev) => prev.filter((career) => career._id !== id));
+    } catch (error) {
+      console.error('Error rejecting career:', error);
+      alert('Failed to reject. Try again.');
+    }
+  };
+
   // 🕐 Loading State
   if (loading) return <div className="text-center mt-10 text-xl">Loading...</div>;
 
   return (
-    <div className="p-3 mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Career Submissions</h1>
+    <div className="min-h-screen bg-gray-50 p-4 md:p-10">
+      <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">Career Submissions</h1>
 
       {careers.length === 0 ? (
         <p className="text-center text-gray-500">No submissions found.</p>
@@ -67,27 +83,38 @@ export default function Resumes() {
           {careers.map((career) => (
             <div
               key={career._id}
-              className="bg-white shadow-lg rounded-xl p-6 border border-gray-200 text-black"
+              className="bg-white shadow-md rounded-xl p-6 border border-gray-200 text-black flex flex-col justify-between"
             >
-              <h2 className="text-xl font-semibold mb-2">{career.name}</h2>
-              <p><span className="font-medium">Email:</span> {career.email}</p>
-              <p><span className="font-medium">Phone:</span> {career.phone}</p>
-              <p><span className="font-medium">Place:</span> {career.place}</p>
-              <p><span className="font-medium">Current CTC:</span> {career.currentCTC}</p>
-              <p><span className="font-medium">Expected CTC:</span> {career.expectedCTC}</p>
-              <p><span className="font-medium">Talk:</span> {career.talk}</p>
-              <p><span className="font-medium">Submitted At:</span> {new Date(career.submittedAt).toLocaleString()}</p>
+              <div>
+                <h2 className="text-xl font-semibold mb-2">{career.name}</h2>
+                <p><span className="font-medium">Email:</span> {career.email}</p>
+                <p><span className="font-medium">Phone:</span> {career.phone}</p>
+                <p><span className="font-medium">Place:</span> {career.place}</p>
+                <p><span className="font-medium">Current CTC:</span> {career.currentCTC}</p>
+                <p><span className="font-medium">Expected CTC:</span> {career.expectedCTC}</p>
+                <p><span className="font-medium">Talk:</span> {career.talk}</p>
+                <p><span className="font-medium">Submitted At:</span> {new Date(career.submittedAt).toLocaleString()}</p>
+              </div>
 
-              {career.resume ? (
+              <div className="mt-4 flex flex-wrap gap-3">
+                {career.resume ? (
+                  <button
+                    onClick={() => handleViewResume(career.resume)}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  >
+                    View Resume
+                  </button>
+                ) : (
+                  <p className="text-red-500">No resume uploaded</p>
+                )}
+
                 <button
-                  onClick={() => handleViewResume(career.resume)}
-                  className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  onClick={() => handleReject(career._id, career.email)}
+                  className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
                 >
-                  View Resume
+                  Reject
                 </button>
-              ) : (
-                <p className="mt-4 text-red-500">No resume uploaded</p>
-              )}
+              </div>
             </div>
           ))}
         </div>
