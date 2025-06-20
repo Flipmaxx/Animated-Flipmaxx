@@ -15,8 +15,6 @@ export default function JobDetails() {
     experience: '',
     location: '',
   });
-
-  // ✅ Auth check
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -27,8 +25,6 @@ export default function JobDetails() {
     };
     checkAuth();
   }, [router]);
-
-  // ✅ Fetch job by ID
   useEffect(() => {
     const fetchJob = async () => {
       try {
@@ -112,12 +108,10 @@ export default function JobDetails() {
         ) : (
 <div className="w-full max-w-7xl mx-auto bg-white dark:bg-black shadow-2xl rounded-2xl px-6 sm:px-8 py-10 space-y-8">
   <div className="space-y-6">
-    {/* Job Title */}
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white break-words">
       {job.position}
     </h1>
 
-    {/* Description */}
     <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
       {job.description}
     </p>
@@ -133,7 +127,6 @@ export default function JobDetails() {
    
   </div>
 
-  {/* Action Buttons */}
   <div className="flex flex-wrap justify-start gap-4 pt-8">
     <button
       className="bg-white text-black border border-black dark:bg-black dark:text-white dark:border-white px-6 py-2 rounded-xl hover:bg-gray-100 dark:hover:bg-white dark:hover:text-black transition-all duration-200"

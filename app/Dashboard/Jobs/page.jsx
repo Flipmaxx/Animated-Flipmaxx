@@ -16,8 +16,6 @@ export default function Jobs() {
     experience: '',
     location: '',
   });
-
-  // ✅ Auth Check using API route
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -71,43 +69,38 @@ export default function Jobs() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      {/* Header */}
+    <div className="min-h-screen bg-white p-6">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Jobs</h1>
+        <h1 className="text-3xl font-bold text-gray-800">Jobs created</h1>
         <div className="flex gap-3">
           <button
             onClick={() => setShowModal(true)}
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex items-center gap-2"
+            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-black flex items-center gap-2 "
           >
             <Plus size={18} /> Add Job
           </button>
-          <button
-            onClick={handleLogout}
-            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 flex items-center gap-2"
-          >
-            <LogOut size={18} /> Logout
-          </button>
+        
         </div>
       </div>
 
       {/* Job Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {jobs.map((job) => (
-         <Link href={`/Dashboard/Jobs/${job._id}`}>
-          <div key={job._id} className="bg-white p-5 rounded-lg shadow hover:shadow-md transition-all">
-            <h2 className="text-xl font-semibold text-blue-700">{job.position}</h2>
-            <p className="text-gray-600 mt-1">{job.description}</p>
-            <p className="mt-2 text-sm">
-              <strong>Experience:</strong> {job.experience}
-            </p>
-            <p className="text-sm">
-              <strong>Location:</strong> {job.location}
-            </p>
-          </div>
-         </Link>
-        ))}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {jobs.map((job) => (
+    <Link href={`/Dashboard/Jobs/${job._id}`} key={job._id}>
+      <div className="bg-black p-6 rounded-lg shadow-lg hover:shadow-xl transition-all h-full">
+        <h2 className="text-xl font-semibold text-white mb-2">{job.position}</h2>
+        <p className="text-white mb-3">{job.description}</p>
+        <p className="text-md text-white mb-1">
+          <strong>Experience:</strong> {job.experience}
+        </p>
+        <p className="text-md text-white">
+          <strong>Location:</strong> {job.location}
+        </p>
       </div>
+    </Link>
+  ))}
+</div>
+
 
       {/* Modal */}
       {showModal && (
