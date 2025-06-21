@@ -9,7 +9,6 @@ export default function Resumes() {
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
 
- 
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -53,12 +52,33 @@ export default function Resumes() {
     window.open(blobUrl, '_blank');
   };
 
+  const handleDownloadResume = (base64, filename = 'resume.pdf') => {
+    const byteCharacters = atob(base64);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      const byteNumbers = new Array(slice.length)
+        .fill()
+        .map((_, i) => slice.charCodeAt(i));
+      byteArrays.push(new Uint8Array(byteNumbers));
+    }
+
+    const blob = new Blob(byteArrays, { type: 'application/pdf' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleReject = async (id, email) => {
     const confirmReject = confirm('Are you sure you want to reject this application?');
     if (!confirmReject) return;
 
     try {
-      await axios.delete(`/api/careers/${id}`, { data: { email } }); 
+      await axios.delete(`/api/careers/${id}`, { data: { email } });
       setCareers((prev) => prev.filter((career) => career._id !== id));
     } catch (error) {
       console.error('Error rejecting career:', error);
@@ -66,10 +86,23 @@ export default function Resumes() {
     }
   };
 
+  const handleAccept = async (id, email) => {
+    const confirmAccept = confirm('Are you sure you want to accept this application?');
+    if (!confirmAccept) return;
+
+    try {
+      await axios.delete(`/api/careers/accept/${id}`, { data: { email } });
+      setCareers((prev) => prev.filter((career) => career._id !== id));
+    } catch (error) {
+      console.error('Error accepting career:', error);
+      alert('Failed to accept. Try again.');
+    }
+  };
+
   if (loading) return <div className="text-center mt-10 text-xl">Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-10">
+    <div className="w-full min-h-screen h-full bg-gray-50 p-4 md:p-10">
       <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">Career Submissions</h1>
 
       {careers.length === 0 ? (
@@ -94,15 +127,30 @@ export default function Resumes() {
 
               <div className="mt-4 flex flex-wrap gap-3">
                 {career.resume ? (
-                  <button
-                    onClick={() => handleViewResume(career.resume)}
-                    className="px-4 py-2 bg-black text-white rounded hover:bg-gray-700"
-                  >
-                    View Resume
-                  </button>
+                  <>
+                    <button
+                      onClick={() => handleViewResume(career.resume)}
+                      className="px-4 py-2 bg-black text-white rounded hover:bg-gray-700"
+                    >
+                      View Resume
+                    </button>
+                    <button
+                      onClick={() => handleDownloadResume(career.resume, `${career.name}_Resume.pdf`)}
+                      className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                    >
+                      Download Resume
+                    </button>
+                  </>
                 ) : (
                   <p className="text-red-500">No resume uploaded</p>
                 )}
+
+                <button
+                  onClick={() => handleAccept(career._id, career.email)}
+                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Accept
+                </button>
 
                 <button
                   onClick={() => handleReject(career._id, career.email)}
