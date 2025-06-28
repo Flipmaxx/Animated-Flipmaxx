@@ -60,6 +60,7 @@ export default function Dashboard() {
             <Settings size={18} />
             <span>Settings</span>
           </li>
+
         </ul>
       </div>
 
@@ -83,6 +84,14 @@ export default function Dashboard() {
             >
               <Settings size={18} />
               <span>Careers</span>
+            </Link>
+
+               <Link
+              href="/Dashboard/Signup"
+              className="flex items-center gap-2 hover:text-blue-400 transition-all"
+            >
+              <Settings size={18} />
+              <span>Signup</span>
             </Link>
           </li>
         </ul>
