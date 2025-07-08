@@ -132,7 +132,7 @@ export default function Navbar() {
         ref={navbarRef}
         className={` w-full z-50 transition-all duration-300 border-b border-black ${scrolled ? "bg-white shadow-md py-2" : "bg-white py-4"}`}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
           <div className="flex justify-between items-center h-8">
             <div ref={logoRef} className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center space-x-2">

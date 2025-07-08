@@ -1,70 +1,167 @@
-'use client';
+'use client'
+import { useRef } from 'react'
+import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { useInView } from 'framer-motion'
 
-import { useRef } from 'react';
+const services = [
+  {
+    id: '01.',
+    title: 'Business Consulting & Growth',
+    description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
+    icon: '/icons/consulting.svg',
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+  },
+  {
+    id: '02.',
+    title: 'Digital Marketing & Landing',
+    description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
+    icon: '/Images/Dm.png',
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+  },
+  {
+    id: '03.',
+    title: 'Website & E commerce Development',
+    description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
+    icon: '/icons/development.svg',
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+  },
+  {
+    id: '04.',
+    title: 'Travel & Event Planning',
+    description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
+    icon: '/icons/travel.svg',
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+  },
+]
 
-export default function Servicesh() {
-  const nextSectionRef = useRef(null);
-
+export default function Services() {
   return (
-    <div className="w-full bg-white">
-      {/* Service Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        {/* Left scrollable service list */}
-        <div className="flex flex-col overflow-y-auto max-h-screen p-6 space-y-12 pr-4">
-          <div className="space-y-4">
-            <p className="text-lg text-gray-600">
-              Digital marketing agency that are
-            </p>
-            <h1 className="text-4xl md:text-5xl font-bold text-black">
-              Jack of all traits, master of results!
-            </h1>
-            <p className="text-lg text-gray-700">
-              We wear many hats (and rock them all), but at the end of the day we get the job done, no matter the challenge!
-            </p>
-          </div>
+    <section className="bg-black text-white py-24 px-4 md:px-16 overflow-x-hidden">
+      {/* Header */}
+      <div className="flex items-center gap-4 mb-6">
+        <button className="bg-white text-black px-4 py-1.5 rounded-md font-semibold text-sm">
+          OUR SERVICES
+        </button>
+        <div className="flex-1" />
+      </div>
 
-          {/* Service cards list */}
-          {Array.from({ length: 5 }).map((_, idx) => (
-            <div key={idx} className="bg-gray-100 p-6 rounded-2xl shadow-md space-y-4">
-              <h2 className="text-xl font-semibold">Performance Marketing {idx + 1}</h2>
-              <p className="text-gray-600">
-                This is a sample description for service {idx + 1}.
-              </p>
-              <button className="mt-2 px-4 py-2 bg-black text-white rounded-xl hover:bg-gray-800 transition">
-                Know more
-              </button>
-            </div>
-          ))}
-
-          <button
-            onClick={() => nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            className="mt-10 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
-          >
-            Continue to Next Section
-          </button>
+      {/* Title and Arrows */}
+      <div className="flex flex-col md:flex-row md:justify-center items-start md:items-center mb-14">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+            Partnering for Service Excellence
+          </h2>
+          <p className="text-gray-400 max-w-xl text-sm leading-relaxed">
+            We collaborate with leading partners to deliver exceptional service,
+            innovation, and value to every client.
+          </p>
         </div>
 
-        {/* Right sticky preview */}
-        <div className="hidden md:block sticky top-0 h-screen bg-black/90 text-white p-12">
-          <div className="flex flex-col items-center justify-center h-full space-y-6">
-            <img
-              src="https://img.favpng.com/4/2/3/line-graphic-design-curve-png-favpng-jGMSAJjbLsN3dP4CdxLyMZ7VE.jpg"
-              alt="Preview"
-              className="w-48 h-48 object-contain"
-            />
-            <h2 className="text-2xl font-bold">Performance Marketing</h2>
-            <p className="text-center text-white/70">We create goal-driven ad strategies that convert clicks into customers.</p>
+        <div className="flex gap-4 mt-6 md:mt-0">
+          <div className="w-10 h-10 flex items-center justify-center bg-white text-black rounded-full cursor-pointer">
+            &#8249;
+          </div>
+          <div className="w-10 h-10 flex items-center justify-center bg-white text-black rounded-full cursor-pointer">
+            &#8250;
           </div>
         </div>
       </div>
 
-      {/* Next Section */}
-      <div
-        ref={nextSectionRef}
-        className="min-h-screen flex items-center justify-center bg-gray-200 text-3xl font-bold"
-      >
-        Next Section Here
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-16 px-3">
+        {services.map((service, index) => {
+          const ref = useRef(null);
+          const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+
+          return (
+            <motion.div
+              ref={ref}
+              key={service.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: 'easeOut',
+              }}
+              className="bg-white relative group text-black text-3xl rounded-md p-6 flex flex-col justify-between min-h-[430px] overflow-hidden"
+            >
+              {/* Video Background - optimized with will-change */}
+              <motion.video
+                src={service.hover}
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-60 transition-opacity duration-500 z-0"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                style={{ willChange: 'opacity' }}
+              />
+              
+              <div>
+                <div className="flex justify-between items-center mb-4">
+                  {/* Flip Container - optimized with perspective and transform-style */}
+                  <motion.div 
+                    className="bg-black p-6 rounded-md z-20"
+                    style={{
+                      perspective: '1000px',
+                      transformStyle: 'preserve-3d'
+                    }}
+                    initial={{ rotateY: 180, opacity: 0 }}
+                    animate={{ 
+                      rotateY: 0, 
+                      opacity: 1,
+                      transition: { 
+                        duration: 0.6,
+                        delay: 0.4 + index * 0.1,
+                        ease: "backOut"
+                      }
+                    }}
+                    whileHover={{ 
+                      rotateY: 180,
+                      transition: { 
+                        duration: 0.4,
+                        ease: "easeOut"
+                      }
+                    }}
+                  >
+                    <motion.div
+                      style={{ 
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(0deg)',
+                        willChange: 'transform'
+                      }}
+                      className="w-full h-full flex items-center justify-center"
+                    >
+                      <img 
+                        src={service.icon} 
+                        alt="icon" 
+                        className="w-9 h-9" 
+                        style={{ pointerEvents: 'none' }}
+                      />
+                    </motion.div>
+                  </motion.div>
+                  <span className="text-gray-400 font-semibold text-sm">
+                    {service.id}
+                  </span>
+                </div>
+                <div className="z-40 relative">
+                  <h3 className="text-2xl font-semibold mb-2 z-30 hover:text-black">{service.title}</h3>
+                </div>
+              </div>
+
+              <div className="mt-2 z-20 relative">
+                <p className="text-sm text-gray-500">{service.description}</p>
+                <hr className="border-black text-black mb-5 mt-5" />
+                <div className="flex items-center gap-2 text-lg font-medium mb-4">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </motion.div>
+          )
+        })}
       </div>
-    </div>
-  );
+    </section>
+  )
 }

@@ -178,7 +178,6 @@ export default function CareerForm() {
           />
         </div>
 
-        {/* Show error or success messages */}
         {error && (
           <div className="md:col-span-2 text-red-600 text-sm font-medium">{error}</div>
         )}
@@ -189,7 +188,7 @@ export default function CareerForm() {
         <div className="md:col-span-2">
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 transition text-white py-2 px-4 rounded"
+            className="w-full bg-black hover:bg-gray-700 transition text-white py-2 px-4 rounded"
           >
             Submit Application
           </button>
