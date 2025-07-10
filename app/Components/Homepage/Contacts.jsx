@@ -41,8 +41,8 @@ export default function ContactSection() {
 
   return (
     <section className="w-full text-white py-16 bg-white">
-      <div className="container mx-auto px-4 xl:px-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-gradient-to-r from-black to-neutral-900 p-10 md:p-16 rounded-2xl">
+      <div className="container mx-auto px-0 md:px-4 xl:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start bg-gradient-to-r from-black to-neutral-900 p-2 md:p-10 rounded-2xl py-7">
           {/* Left Text */}
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-4xl font-bold leading-snug">

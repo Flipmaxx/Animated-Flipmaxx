@@ -1,26 +1,14 @@
-'use client';
+  'use client';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const logos = [
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-  '/Images/FLIP.png',
-];
+const logos = Array(12).fill('/Images/FLIP.png');
 
 export default function Companies() {
   const [index, setIndex] = useState(0);
+
   const visibleCount = 4;
 
   useEffect(() => {
@@ -39,31 +27,26 @@ export default function Companies() {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto bg-white py-10">
-      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-16">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-between items-center gap-6 w-full"
-        >
-          {getVisibleLogos().map((logo, i) => (
-            <div
-              key={i}
-              className="flex justify-center items-center w-[22%] sm:w-[22%] md:w-[22%] lg:w-[22%] xl:w-[22%]"
-            >
-              <Image
-                src={logo}
-                alt={`Logo ${i + 1}`}
-                width={120}
-                height={60}
-                className="object-contain"
-              />
-            </div>
-          ))}
-        </motion.div>
-      </div>
+    <section className="w-full max-w-7xl mx-auto bg-white py-10 px-4 sm:px-6 md:px-8 lg:px-16">
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="grid grid-cols-4 gap-6 items-center"
+      >
+        {getVisibleLogos().map((logo, i) => (
+          <div key={i} className="flex justify-center items-center w-full">
+            <Image
+              src={logo}
+              alt={`Logo ${i + 1}`}
+              width={120}
+              height={60}
+              className="object-contain max-w-full h-auto"
+            />
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }
