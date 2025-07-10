@@ -87,7 +87,7 @@ export default function Landing() {
       <div ref={secondHeroRef} className="w-full h-full flex items-center text-start justify-start bg-white relative">
         <video
           src="https://videos.pexels.com/video-files/6774633/6774633-sd_640_360_30fps.mp4"
-          className="w-full h-96 md:h-full object-cover"
+          className="w-full h-screen object-cover"
           loop
           autoPlay
           muted
