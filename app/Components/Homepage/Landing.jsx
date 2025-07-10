@@ -63,7 +63,7 @@ export default function Landing() {
 
   return (
     <div className="w-full h-full">
-      <div ref={imageRef} className="w-full h-full md:h-[70vh] xl:h-full flex items-center justify-center fixed inset-0 bg-white z-10">
+      <div ref={imageRef} className="w-full h-screen flex items-center justify-center fixed inset-0 bg-white z-10">
         <img 
           src="./Images/FLIP.png" 
           alt="Flipmaxx Logo" 
