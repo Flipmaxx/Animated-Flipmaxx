@@ -11,7 +11,7 @@ const testimonials = [
     role: 'IT Manager',
     avatar: '/images/roshan.jpg',
     quote:
-      'Flipmax exceeded my expectations! The quality is top-notch, delivery was fast, and customer service was amazing.',
+      'Flipmax exceeded my expectations! The quality is top-notch, delivery was fast, and customer service was amazing.Flipmax exceeded my expectations! The quality is top-notch, delivery was fast, and customer service was amazingFlipmax exceeded my expectations! The quality is top-notch, delivery was fast, and customer service was amazing',
   },
   {
     name: 'Ananya Sharma',
@@ -99,7 +99,6 @@ export default function TestimonialSection() {
           </motion.div>
         )}
 
-        {/* Right: Testimonial Content */}
         <div className="space-y-4 sm:space-y-6">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -166,7 +165,6 @@ export default function TestimonialSection() {
             </div>
           </div>
 
-          {/* Pagination buttons */}
           <div className="flex justify-end gap-2 mt-6">
             <button
               onClick={prev}

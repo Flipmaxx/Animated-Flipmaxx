@@ -165,7 +165,7 @@ export default function WhyChoose() {
                   key={i}
                   className="text-center px-6 py-8 border border-gray-200 rounded-lg shadow-sm bg-white"
                 >
-                  <div className="mx-auto w-12 h-12 rounded-full bg-black text-white flex items-center justify-center mb-4">
+                  <div className="mx-auto w-12 h-12 rounded-full bg-black text-white flex items-center justify-center mb-4 animate-bounce">
                     {feature.icon}
                   </div>
                   <h3 className="text-lg font-semibold">{feature.title}</h3>

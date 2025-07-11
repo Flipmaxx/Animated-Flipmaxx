@@ -72,7 +72,7 @@ export default function Landing() {
       </div>
       <div 
         ref={overlayRef} 
-        className="w-full h-full md:h-[60vh] xl:h-full fixed inset-0 bg-black z-20 flex items-center justify-center"
+        className="w-full h-screen fixed inset-0 bg-black z-20 flex items-center justify-center"
       >
         <h2 className='absolute text-sm md:text-2xl xl:text-6xl text-white'>From concept to clicks</h2>
         <div 
@@ -93,7 +93,7 @@ export default function Landing() {
           muted
           playsInline
         />
-        <div className='absolute inset-0 w-full h-full bg-black/50'></div>
+        <div className='absolute inset-0 w-full h-screen bg-black/50'></div>
 
         <div className='flex flex-col items-start absolute top-40 left-7 text-4xl font-bold  text-white'>
           <h1>Flipmaxx Global LLp</h1>

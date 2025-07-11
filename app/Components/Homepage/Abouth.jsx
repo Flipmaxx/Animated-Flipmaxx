@@ -6,25 +6,40 @@ import { ArrowRight, Award } from 'lucide-react';
 export default function AboutSection() {
   return (
     <section className="w-full px-6 py-9  bg-white">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-start justify-start">
-        <div className=''>
-            <div className="relative w-full  rounded-xl ">
-          <img
-            src="/Images/R.png"
-            alt="Team Member"
-            className="w-[400px] h-full bg-cover"
-          />
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center justify-center ">
+     
+     <div className="relative w-full max-w-md mx-auto md:mx-0 rounded-xl overflow-visible perspective group">
+  <img
+    src="/Images/R.png"
+    alt="Team Member"
+    className="w-full h-auto object-cover rounded-xl"
+  />
 
-          <div className="absolute bottom-6 left-6 bg-black text-white px-5 py-4 rounded-xl shadow-xl w-[140px] text-center">
-            <Award size={28} className="mx-auto mb-1" />
-            <div className="text-2xl font-bold leading-tight">3+</div>
-            <div className="text-sm leading-snug">
-              Years of experience<br />
-              since 2023
-            </div>
-          </div>
-        </div>
-        </div>
+  <div className="absolute left-0 sm:-left-10 md:left-2 lg:-left-0 xl:-left-12 bottom-[0rem] md:bottom-[2rem] w-[120px] sm:w-[140px] h-36 sm:h-40 text-center [transform-style:preserve-3d] transition-transform duration-700 group-hover:rotate-y-180 z-10">
+
+    <div className="absolute inset-0 bg-black text-white px-4 py-3 rounded-xl shadow-xl backface-hidden">
+      <Award size={24} className="mx-auto mb-1" />
+      <div className="text-xl font-bold leading-tight">3+</div>
+      <div className="text-xs leading-snug">
+        Years of experience<br />
+        since 2023
+      </div>
+    </div>
+
+    <div className="absolute inset-0 bg-black text-white px-4 py-3 rounded-xl shadow-xl rotate-y-180 backface-hidden">
+      <Award size={24} className="mx-auto mb-1" />
+      <div className="text-xl font-bold leading-tight">3+</div>
+      <div className="text-xs leading-snug">
+        Years of experience<br />
+        since 2023
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
         <div className="space-y-6">
           <h2 className=" text-lg lg:text-xl xl:text-4xl font-bold text-gray-900 leading-snug">
             Excellence Across Media, Travel,<br />
