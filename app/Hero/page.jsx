@@ -27,7 +27,7 @@ export default function Hero(){
             <TeamSection/>
             <ContactSection/>
              <TestimonialSection/>
-             <Footer/>
+           
             {/* <Linedown/> */}
         </div>
     )

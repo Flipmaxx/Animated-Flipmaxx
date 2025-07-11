@@ -79,7 +79,7 @@ export default function Postings() {
               </div>
 
              <Link href={`/careers/${job._id}`}>
-              <button className="mt-8 py-2 w-full bg-black text-white rounded-xl text-lg font-semibold hover:bg-red-600 transition-all">
+              <button className="mt-8 py-2 w-full bg-black text-white rounded-xl text-lg font-semibold hover:bg-black transition-all">
                 Apply Now
               </button>
              </Link>

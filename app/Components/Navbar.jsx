@@ -132,7 +132,7 @@ export default function Navbar() {
         ref={navbarRef}
         className={` w-full z-50 transition-all duration-300 border-b border-black ${scrolled ? "bg-white shadow-md py-2" : "bg-white py-4"}`}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="flex justify-between items-center h-8">
             <div ref={logoRef} className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center space-x-2">
@@ -147,7 +147,7 @@ export default function Navbar() {
             <div ref={menuButtonRef} className="flex items-center border-l">
               <button
                 onClick={() => setOpen(!open)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-red-600 focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-black focus:outline-none"
                 aria-expanded={open}
                 aria-label={open ? "Close menu" : "Open menu"}
               >
@@ -170,7 +170,7 @@ export default function Navbar() {
           <Link
             key={link.name}
             href={link.href}
-            className={`w-full text-center py-5 text-2xl font-medium border-b border-gray-100 transition-colors ${pathname === link.href ? "text-red-600" : "text-gray-800 hover:text-red-600"}`}
+            className={`w-full text-center py-5 text-2xl font-medium border-b border-gray-100 transition-colors ${pathname === link.href ? "text-black" : "text-gray-800 hover:text-red-600"}`}
             onClick={() => setOpen(false)}
           >
             {link.name}
@@ -185,7 +185,6 @@ export default function Navbar() {
     
   </div>
   
-  {/* Right Panel - Menu Content */}
   <div className="bg-white grid grid-cols-2 w-full">
     
     <div className="p-8 max-w-full">
@@ -197,7 +196,7 @@ export default function Navbar() {
             className={`text-xl lg:text-5xl mt-10 font-bold transition-colors w-full ${
               pathname === link.href 
                 ? "text-black" 
-                : "text-black hover:text-red-600"
+                : "text-black hover:text-black"
             }`}
             onClick={() => setOpen(false)}
           >

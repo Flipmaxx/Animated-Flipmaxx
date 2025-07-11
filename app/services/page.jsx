@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import {
   FaCogs,
   FaBullhorn,
@@ -9,55 +10,86 @@ import {
   FaVideo,
 } from 'react-icons/fa';
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  },
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, x: -30 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
 export default function ServicesSection() {
   return (
     <section className="w-full min-h-screen bg-white flex flex-col">
-      
-   <div className="relative w-full h-96 bg-black overflow-hidden">
-  <video
-    className="absolute inset-0 w-full h-full object-cover opacity-30"
-    autoPlay
-    loop
-    muted
-    playsInline
-  >
-    <source src="https://cdn-front.freepik.com/revamp/temp/hero/v2-home-video.webm" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/20" />
-  <div className="relative z-10 flex items-center justify-center h-full">
-    <h2 className="text-white text-3xl font-bold text-start">Our Services</h2>
-  </div>
-</div>
+      <div className="relative w-full h-96 bg-black overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source
+            src="https://cdn-front.freepik.com/revamp/temp/hero/v2-home-video.webm"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/20" />
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <h2 className="text-white text-3xl font-bold text-start">Our Services</h2>
+        </div>
+      </div>
 
-
-     
-      <div className="flex-1 container   mx-auto w-full px-4 py-12 sm:px-6 lg:px-8">
-        {/* <h2 className="text-3xl font-bold mb-10 text-black">Our Services</h2> */}
-
-     
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="flex-1 container mx-auto w-full px-8 py-12  sm:px-6 lg:px-8 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  py-3 xl:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-black rounded-lg p-6 space-y-4 text-white shadow-lg hover:shadow-xl transition-shadow "
+              className="bg-black rounded-lg p-6 space-y-4 text-white shadow-lg hover:shadow-xl  transition-shadow"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
             >
-              <h3 className="text-lg font-semibold leading-tight">
+              <motion.h3
+                className="text-lg font-semibold leading-tight"
+                variants={contentVariants}
+              >
                 {service.title}
-              </h3>
+              </motion.h3>
 
-              <div className="w-full h-24 flex items-center justify-center text-white  text-6xl py-28">
+              <div className="w-full h-24 flex items-center justify-center text-white text-6xl py-28 p-7 ">
                 <img src={service.icon} alt="no work" />
               </div>
 
               {service.points && (
-                <div className="space-y-3 text-sm lg:text-xl">
+                <motion.div
+                  className="space-y-3 text-sm lg:text-xl"
+                  variants={contentVariants}
+                >
                   {service.points.map((point, idx) => (
                     <p key={idx}>{point}</p>
                   ))}
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

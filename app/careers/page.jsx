@@ -7,7 +7,7 @@ export default function Careers() {
   return (
     <div className="mx-auto p-3">
 
-      <div className="relative max-w-full h-60 md:h-96 mt-7 rounded-xl bg-black/80 overflow-hidden flex flex-col justify-center items-start text-white px-4">
+      <div className="relative max-w-full h-60 md:h-96 mt-7 rounded-xl bg-black overflow-hidden flex flex-col justify-center items-start text-white px-4">
         
         <div className="absolute inset-0 pointer-events-none z-0">
           {[...Array(6)].map((_, i) => (
