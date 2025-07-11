@@ -1,17 +1,30 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link'; 
 
 export default function ExpertiseSection() {
   const companies = [
-    'Nextway Media',
-    'The Business Inspire',
-    'Travioza Holidays & Events',
-    'Premier Property Experts',
+    {
+      name: 'Nextway Media',
+      url: 'https://nextwaymedias.com',
+    },
+    {
+      name: 'The Business Inspire',
+      url: 'https://thebusinessinspire.com',
+    },
+    {
+      name: 'Travioza Holidays & Events',
+      url: 'https://travioza.com',
+    },
+    {
+      name: 'Premier Property Experts',
+      url: 'https://premierpropertyexperts.com',
+    },
   ];
 
   return (
-    <section className="w-full  bg-white text-white py-16 px-4 md:px-10 ">
+    <section className="w-full bg-white text-white py-16 px-4 md:px-10">
       <div className="container bg-gradient-to-br from-black to-zinc-900 mx-auto text-center rounded-xl py-10 space-y-12">
         <motion.button
           initial={{ opacity: 0, y: -10 }}
@@ -48,9 +61,15 @@ export default function ExpertiseSection() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + i * 0.1, duration: 0.4 }}
-              className="hover:underline underline-offset-4 transition cursor-pointer text-white"
             >
-              {company}
+              <Link
+                href={company.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline underline-offset-4 transition cursor-pointer text-white"
+              >
+                {company.name}
+              </Link>
             </motion.div>
           ))}
         </div>

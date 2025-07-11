@@ -30,7 +30,7 @@ export default function ContactSection() {
     }
 
     try {
-      const response = await axios.post('/api/contact', formData);
+      const response = await axios.post('/api/Contact', formData);
       console.log('Success:', response.data);
       alert('Message sent successfully!');
     } catch (error) {
