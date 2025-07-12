@@ -119,6 +119,7 @@ export default function Resumes() {
                 <p><span className="font-medium">Email:</span> {career.email}</p>
                 <p><span className="font-medium">Phone:</span> {career.phone}</p>
                 <p><span className="font-medium">Place:</span> {career.place}</p>
+                <p><span className="font-medium">Position:</span> {career.position}</p>
                 <p><span className="font-medium">Current CTC:</span> {career.currentCTC}</p>
                 <p><span className="font-medium">Expected CTC:</span> {career.expectedCTC}</p>
                 <p><span className="font-medium">Talk:</span> {career.talk}</p>

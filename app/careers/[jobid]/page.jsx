@@ -12,6 +12,7 @@ export default function CareerForm() {
     email: '',
     place: '',
     phone: '',
+    position: '',
     currentCTC: '',
     expectedCTC: '',
     talk: '',
@@ -60,15 +61,15 @@ export default function CareerForm() {
     try {
       await axios.post('/api/careers', form);
       setSuccess('Application submitted successfully!');
-     alert('Application submitted successfully!')
       setError('');
+      alert('Application submitted successfully!');
       setTimeout(() => {
         router.push('/');
       }, 1000);
     } catch (err) {
       setError(err?.response?.data?.message || 'Something went wrong.');
-      setSuccess('Error in submission');
-      alert('Application submition error!')
+      setSuccess('');
+      alert('Application submission error!');
     }
   };
 
@@ -77,6 +78,7 @@ export default function CareerForm() {
       <h2 className="text-3xl font-bold text-center mb-6">Job Application</h2>
 
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Name */}
         <div>
           <label className="block mb-1 font-medium">Full Name *</label>
           <input
@@ -89,6 +91,7 @@ export default function CareerForm() {
           />
         </div>
 
+        {/* Email */}
         <div>
           <label className="block mb-1 font-medium">Email *</label>
           <input
@@ -101,10 +104,11 @@ export default function CareerForm() {
           />
         </div>
 
+        {/* Phone */}
         <div>
           <label className="block mb-1 font-medium">Phone *</label>
           <input
-            type="text"
+            type="tel"
             name="phone"
             required
             value={formData.phone}
@@ -113,6 +117,7 @@ export default function CareerForm() {
           />
         </div>
 
+        {/* Location */}
         <div>
           <label className="block mb-1 font-medium">Current Location *</label>
           <input
@@ -125,6 +130,7 @@ export default function CareerForm() {
           />
         </div>
 
+        {/* Current CTC */}
         <div>
           <label className="block mb-1 font-medium">Current CTC *</label>
           <div className="flex gap-2">
@@ -140,6 +146,7 @@ export default function CareerForm() {
           </div>
         </div>
 
+        {/* Expected CTC */}
         <div>
           <label className="block mb-1 font-medium">Expected CTC *</label>
           <div className="flex gap-2">
@@ -155,6 +162,28 @@ export default function CareerForm() {
           </div>
         </div>
 
+        {/* Position */}
+        <div>
+          <label className="block mb-1 font-medium">Position *</label>
+          <select
+            name="position"
+            required
+            value={formData.position}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded"
+          >
+            <option value="">Select Position</option>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="Project Manager">Project Manager</option>
+            <option value="Marketing Executive">Marketing Executive</option>
+            <option value="DevOps Engineer">DevOps Engineer</option>
+          </select>
+        </div>
+
+        {/* Resume Upload */}
         <div className="md:col-span-2">
           <label className="block mb-1 font-medium">Upload Resume (PDF, Max 2MB) *</label>
           <input
@@ -166,6 +195,7 @@ export default function CareerForm() {
           />
         </div>
 
+        {/* About */}
         <div className="md:col-span-2">
           <label className="block mb-1 font-medium">Tell us about yourself *</label>
           <textarea
@@ -178,13 +208,11 @@ export default function CareerForm() {
           />
         </div>
 
-        {error && (
-          <div className="md:col-span-2 text-red-600 text-sm font-medium">{error}</div>
-        )}
-        {success && (
-          <div className="md:col-span-2 text-green-600 text-sm font-medium">{success}</div>
-        )}
+        {/* Messages */}
+        {error && <div className="md:col-span-2 text-red-600 text-sm font-medium">{error}</div>}
+        {success && <div className="md:col-span-2 text-green-600 text-sm font-medium">{success}</div>}
 
+        {/* Submit */}
         <div className="md:col-span-2">
           <button
             type="submit"
