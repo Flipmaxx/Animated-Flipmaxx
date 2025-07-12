@@ -62,9 +62,9 @@ export default function Postings() {
                   </h3>
                 </div>
 
-                <p className="text-gray-700 text-base md:text-lg mb-8 font-medium">
+                {/* <p className="text-gray-700 text-base md:text-lg mb-8 font-medium">
                   {job.description}
-                </p>
+                </p> */}
 
                 <div className="flex flex-col gap-4 text-lg text-gray-700 font-medium">
                   <div className="flex items-center gap-3">
