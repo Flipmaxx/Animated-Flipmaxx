@@ -1,7 +1,7 @@
-// File: /app/api/contact/route.js
+
 
 import dbConnect from '../../../lib/dbConnect';
-import Contact from '../../../Modeles/contact.model'; // <-- fixed typo
+import Contact from '../../../Modeles/contact.model'; 
 
 export async function POST(req) {
   try {

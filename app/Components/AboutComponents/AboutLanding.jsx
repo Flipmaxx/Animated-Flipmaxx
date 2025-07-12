@@ -56,8 +56,8 @@ export default function AboutLanding() {
         <div className="container mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center" data-aos="fade-up">
             <div className="relative" data-aos="zoom-in">
-              <div className="absolute -top-8 -left-8 w-32 h-32 border-4 border-black rounded-lg z-0"></div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 border-4 border-black rounded-lg z-0"></div>
+              {/* <div className="absolute -top-8 -left-8 w-32 h-32 border-4 border-black rounded-lg z-0"></div> */}
+              {/* <div className="absolute -bottom-8 -right-8 w-32 h-32 border-4 border-black rounded-lg z-0"></div> */}
               <div className="relative z-10 bg-black p-1 rounded-lg">
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" 
@@ -68,7 +68,7 @@ export default function AboutLanding() {
               </div>
             </div>
             <div data-aos="fade-left">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 leading-tight">
+              <h2 className="text-xl sm:text-xl xl:text-2xl font-bold mb-8 leading-tight">
                 We Are <span className="bg-black text-white p-4">Digital Architects</span>
               </h2>
               <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
@@ -140,7 +140,7 @@ export default function AboutLanding() {
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <div className="text-4xl mb-6 text-white">{value.icon}</div>
+                {/* <div className="text-4xl mb-6 text-white">{value.icon}</div> */}
                 <h3 className="text-2xl font-bold mb-4 text-white">{value.title}</h3>
                 <p className="text-gray-700 text-lg text-white">{value.desc}</p>
               </div>
