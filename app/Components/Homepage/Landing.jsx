@@ -23,7 +23,7 @@ export default function Landing() {
 
     tl.from(imageRef.current, {
       y: '70vh',
-      duration: 1.5,
+      duration: 0.77,
       opacity: 0,
       ease: "back.out(1.7)"
     });
@@ -31,8 +31,8 @@ export default function Landing() {
     tl.to(imageRef.current, {
       y: '-70vh',
       opacity: 0,
-      duration: 1,
-      delay: 2.5,
+      duration: 0.66,
+      delay: 1,
       ease: "power3.in",
       onComplete: () => {
         gsap.set(imageRef.current, { display: 'none' });
