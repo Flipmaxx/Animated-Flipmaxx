@@ -1,4 +1,5 @@
 'use client';
+import { BiSolidRightArrow } from "react-icons/bi";
 
 import { motion } from 'framer-motion';
 import {
@@ -46,14 +47,17 @@ export default function ServicesSection() {
           playsInline
         >
           <source
-            src="https://cdn-front.freepik.com/revamp/temp/hero/v2-home-video.webm"
+            src="./Images/4.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/20" />
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <h2 className="text-white text-3xl font-bold text-start">Our Services</h2>
+        <div className="relative z-10 flex items-center justify-start px-3 h-full">
+     <div className='flex flex-col gap-y-4'>
+           <h2 className="text-white text-3xl font-bold text-start">Our Services</h2>
+          <h2 className="text-white text-sm font-bold text-start flex items-center gap-1">Home <BiSolidRightArrow className="w-3 h-3 text-white" /> Services</h2>
+     </div>
         </div>
       </div>
 

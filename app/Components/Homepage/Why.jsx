@@ -163,7 +163,7 @@ export default function WhyChoose() {
               {currentCards.map((feature, i) => (
                 <div
                   key={i}
-                  className="text-center px-6 py-8 border border-gray-200 rounded-lg shadow-sm bg-white"
+                  className="text-center px-6 py-8  rounded-lg  bg-white"
                 >
                   <div className="mx-auto w-12 h-12 rounded-full bg-black text-white flex items-center justify-center mb-4 animate-bounce">
                     {feature.icon}
