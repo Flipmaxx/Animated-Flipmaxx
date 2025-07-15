@@ -12,28 +12,33 @@ const services = [
     title: 'Business Consulting & Growth',
     description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
     icon: '/Images/Bc.png',
-    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ=",
+   Link: 'https://www.businessinspire.com'
   },
   {
     id: '02.',
     title: 'Digital Marketing & Landing',
     description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
     icon: '/Images/Dm.png',
-    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ=",
+ Link: 'https://www.nextwaymedias.com' 
+    
   },
   {
     id: '03.',
     title: 'Website & E commerce Development',
     description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
     icon: '/Images/We.png',
-    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ=",
+     Link: 'https://www.nextwaymedias.com' 
   },
   {
     id: '04.',
     title: 'Travel & Event Planning',
     description: 'We provide strategic business consulting and growth solutions that drive innovation, boost performance.',
     icon: '/Images/Te.png',
-    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ="
+    hover: "https://media.istockphoto.com/id/1961001965/video/4k-soft-wave-background-loopable.mp4?s=mp4-640x640-is&k=20&c=SGjSiQt0-jznIuHAXm3r5O1M1sb75zKN5rZdefrV7zQ=",
+     Link: 'https://www.travioza.com' 
   },
 ];
 
@@ -123,11 +128,15 @@ export default function Services() {
                 <div className="mt-2 z-0 relative">
                   <p className="text-sm text-gray-500">{service.description}</p>
                   <hr className="border-black text-black mb-5 mt-5" />
-                  <Link href={`/services`}>
-                  <div className="flex items-center gap-2 text-lg font-medium mb-4">
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </div>
-                  </Link>
+               <a
+  href={service.Link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 text-lg font-medium mb-4"
+>
+  Learn More <ArrowRight className="w-4 h-4" />
+</a>
+
                 </div>
               </motion.div>
             );

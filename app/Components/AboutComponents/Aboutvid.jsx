@@ -44,7 +44,7 @@ export default function Aboutvid() {
         }`}
       >
         <video
-          src="/Images/ab.mp4"
+          src="/Images/LOOP.mp4"
           autoPlay
           muted
           loop

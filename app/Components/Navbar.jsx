@@ -4,6 +4,7 @@ import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -22,9 +23,19 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-      { name: "Careers", href: "/careers" },
+    { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
+ 
   ];
+
+  const socialLinks = [
+    { name: "Facebook", icon: <FaFacebook />, href: "https://facebook.com/flipmaxx" },
+    { name: "Twitter", icon: <FaTwitter />, href: "https://twitter.com/flipmaxx" },
+    { name: "Instagram", icon: <FaInstagram />, href: "https://instagram.com/flipmaxx" },
+    { name: "LinkedIn", icon: <FaLinkedin />, href: "https://linkedin.com/company/flipmaxx" },
+  ];
+
+  const companyAddress = "123 Business Park, Sector 22, Gurugram, Haryana 122001, India";
 
   useEffect(() => {
     tlNavbar.current = gsap.timeline()
@@ -46,15 +57,17 @@ export default function Navbar() {
         duration: 0.5,
         ease: "back.out"
       }, "-=0.5");
+
     tlMobile.current = gsap.timeline({ paused: true })
-      .fromTo(mobileMenuRef.current, 
+      .fromTo(mobileMenuRef.current,
         { y: -20, opacity: 0, display: "none" },
         { y: 0, opacity: 1, display: "flex", duration: 0.4, ease: "power2.out" }
       )
-      .from(mobileMenuRef.current.querySelectorAll("a"), 
+      .from(mobileMenuRef.current.querySelectorAll("a"),
         { y: 20, opacity: 0, stagger: 0.1, duration: 0.3, ease: "back.out" },
         "-=0.3"
       );
+
     tlDesktop.current = gsap.timeline({ paused: true })
       .fromTo(desktopMenuRef.current,
         { y: -50, opacity: 0, display: "none" },
@@ -64,12 +77,13 @@ export default function Navbar() {
         { y: 30, opacity: 0, stagger: 0.15, duration: 0.4, ease: "elastic.out(1, 0.5)" },
         "-=0.4"
       );
+
     const scrollTriggerConfig = {
       trigger: document.body,
       start: "top top",
       end: "max",
       onUpdate: (self) => {
-        if (self.direction === -1) { 
+        if (self.direction === -1) {
           gsap.to(navbarRef.current, {
             y: 0,
             opacity: 1,
@@ -128,11 +142,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav 
+      <nav
         ref={navbarRef}
-        className={` w-full z-50 transition-all duration-300 border-b border-black ${scrolled ? "bg-white shadow-md py-2" : "bg-white py-4"}`}
+        className={`w-full z-50 transition-all duration-300 border-b border-black ${scrolled ? "bg-white shadow-md py-2" : "bg-white py-4"}`}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-8">
             <div ref={logoRef} className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center space-x-2">
@@ -161,52 +175,122 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-      <div 
+
+      {/* Mobile Menu */}
+      <div
         ref={mobileMenuRef}
-        className="md:hidden fixed inset-0 z-40 bg-white pt-24 px-6 flex flex-col items-center overflow-hidden"
+        className="md:hidden fixed inset-0 z-40 bg-white pt-24 px-6 flex flex-col items-center overflow-y-auto"
         style={{ display: 'none' }}
       >
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={`w-full text-center py-5 text-2xl font-medium border-b border-gray-100 transition-colors ${pathname === link.href ? "text-black" : "text-gray-800 hover:text-red-600"}`}
-            onClick={() => setOpen(false)}
-          >
-            {link.name}
-          </Link>
-        ))}
+        {navLinks.map((link) =>
+          link.dropdown ? (
+            <div key={link.name} className="w-full">
+              <p className="py-5 text-2xl font-semibold text-center">{link.name}</p>
+              {link.links.map((sublink) => (
+                <Link
+                  key={sublink.name}
+                  href={sublink.href}
+                  target="_blank"
+                  className="block w-full text-center py-2 text-lg font-medium text-gray-700 hover:text-red-600"
+                >
+                  {sublink.name}
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`w-full text-center py-5 text-2xl font-medium border-b border-gray-100 transition-colors ${pathname === link.href ? "text-black" : "text-gray-800 hover:text-red-600"}`}
+              onClick={() => setOpen(false)}
+            >
+              {link.name}
+            </Link>
+          )
+        )}
+
+        {/* Mobile Social Media and Address */}
+        <div className="w-full mt-8 mb-12 px-4">
+          <div className="flex justify-center space-x-6 mb-6">
+            {socialLinks.map((social) => (
+              <Link
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                className="text-2xl text-gray-700 hover:text-red-600"
+                aria-label={social.name}
+              >
+                {social.icon}
+              </Link>
+            ))}
+          </div>
+          <p className="text-center text-gray-600 text-sm">
+            {companyAddress}
+          </p>
+        </div>
       </div>
-<div 
-  ref={desktopMenuRef}
-  className="hidden md:grid md:grid-cols-2 fixed inset-0 z-40"
->
-  <div className="bg-black/60 backdrop-blur-sm flex items-center justify-center w-full">
-    
-  </div>
-  
-  <div className="bg-white grid grid-cols-2 w-full">
-    
-    <div className="p-8 max-w-full">
-      <nav className="flex flex-col space-y-4 items-start justify-center">
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={`text-xl lg:text-5xl mt-10 font-bold transition-colors w-full ${
-              pathname === link.href 
-                ? "text-black" 
-                : "text-black hover:text-black"
-            }`}
-            onClick={() => setOpen(false)}
-          >
-            {link.name}
-          </Link>
-        ))}
-      </nav>
-    </div>
-  </div>
-</div>
+
+      {/* Desktop Menu */}
+      <div
+        ref={desktopMenuRef}
+        className="hidden md:grid md:grid-cols-2 fixed inset-0 z-40"
+      >
+        <div className="bg-black/60 backdrop-blur-sm flex items-center justify-center w-full">
+          {/* Desktop Address Section */}
+          <div className="p-8 text-white max-w-md">
+            <h3 className="text-2xl font-bold mb-4">Our Office</h3>
+            <p className="mb-8">{companyAddress}</p>
+            
+            <h3 className="text-2xl font-bold mb-4">Connect With Us</h3>
+            <div className="flex space-x-4">
+              {socialLinks.map((social) => (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  className="text-2xl hover:text-red-400 transition-colors"
+                  aria-label={social.name}
+                >
+                  {social.icon}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white grid grid-cols-2 w-full">
+          <div className="p-8 max-w-full">
+            <nav className="flex flex-col space-y-4 items-start justify-center">
+              {navLinks.map((link) =>
+                link.dropdown ? (
+                  <div key={link.name} className="w-full">
+                    <p className="text-xl lg:text-5xl mt-10 font-bold">{link.name}</p>
+                    {link.links.map((sublink) => (
+                      <Link
+                        key={sublink.name}
+                        href={sublink.href}
+                        target="_blank"
+                        className="text-lg mt-4 block font-medium hover:text-red-600"
+                      >
+                        {sublink.name}
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`text-xl lg:text-5xl mt-10 font-bold transition-colors w-full ${pathname === link.href ? "text-black" : "text-black hover:text-black"}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
+            </nav>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

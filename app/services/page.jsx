@@ -119,17 +119,17 @@ const services = [
   },
   {
     title: 'Travel & Event Planning',
-    icon: '/Images/I4.png',
+    icon: '/Images/I1.png',
     points: ['Corporate Events', 'Destination Management', 'Flight & Hotel Booking'],
   },
   {
     title: 'Real Estate Services',
-    icon: '/Images/I4.png',
+    icon: '/Images/I2.png',
     points: ['Property Listing', 'Buyer Assistance', 'Legal Consulting'],
   },
   {
     title: 'Video & Content Creation',
-    icon: '/Images/I4.png',
+    icon: '/Images/I3.png',
     points: ['Scriptwriting', 'Editing', 'Distribution Strategy'],
   },
 ];

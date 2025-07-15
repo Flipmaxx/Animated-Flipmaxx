@@ -52,7 +52,7 @@ export default function Contact() {
           playsInline
         >
           <source
-            src="https://cdn-front.freepik.com/revamp/temp/hero/v2-home-video.webm"
+            src="./Images/LOOP.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -64,7 +64,7 @@ export default function Contact() {
       </div>
 
         <div>
-            <h1 className='text-4xl px-4 py-9'>Have A Project In Mind Let’s Talk ?</h1>
+            {/* <h1 className='text-4xl px-4 py-9'>Have A Project In Mind Let’s Talk ?</h1> */}
         </div>
 
 
@@ -156,27 +156,25 @@ export default function Contact() {
           </form>
         </div>
       </div>
-{/* Address & Map Section */}
+
 <section className="bg-black py-12 px-4 sm:px-6 lg:px-8 mt-10">
   <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
     
-    {/* Address Info */}
+ 
     <div className="space-y-4">
       <h3 className="text-2xl font-bold text-black">Visit Our Office</h3>
       <p className="text-white">
         <strong>Flipmaxx Global LLP</strong><br />
-        Door No. 65/3691, Ground Floor,<br />
-        Bhavani Building, SRM Road, Kaloor,<br />
-        Ernakulam, Kerala - 682018, India
+      Mangalassery Tower, Eloor Rd, opposite Ganapathy Temple, North Kalamassery, Kalamassery, Kochi, Kerala 683104
       </p>
       <p className="text-white">
         <strong>Email:</strong> <a href="mailto:flipmaxxglobal@gmail.com" className="text-white underline">flipmaxxglobal@gmail.com</a><br />
-        <strong>Phone:</strong> <a href="tel:+91" className="text-white underline">+91 90724 02030</a><br />
-        <strong>CIN:</strong> ACB-0317
+        <strong>Phone:</strong> <a href="tel:+91" className="text-white underline">+91 </a><br />
+       
       </p>
     </div>
 
-    {/* Embedded Google Map */}
+  
     <div className="rounded-xl overflow-hidden shadow-lg h-80 w-full">
       <iframe
         title="Flipmaxx Global LLP Location"

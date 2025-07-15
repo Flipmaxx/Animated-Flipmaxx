@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function ExpertiseSection() {
   const companies = [
     {
-      name: 'Nextway Media',
+      name: 'Nextway Medias',
       url: 'https://nextwaymedias.com',
     },
     {
