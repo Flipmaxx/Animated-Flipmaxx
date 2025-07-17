@@ -16,8 +16,6 @@ export default function AboutLanding() {
 
   return (
     <section className="w-full min-h-full px-4  flex flex-col items-center bg-white">
-      
-      {/* Text Section */}
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-start md:items-center gap-6 mb-10">
         <button className="px-4 py-2 bg-black text-white text-xs font-semibold rounded shadow-md">
           ABOUT US

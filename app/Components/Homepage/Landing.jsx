@@ -96,7 +96,7 @@ export default function Landing() {
         <div className='absolute inset-0 w-full h-screen bg-black/20'></div>
 
         <div className='flex flex-col items-start absolute top-20 left-7 text-4xl font-bold  text-white'>
-          <h1 className='text-xl xl:text-5xl'>Flipmaxx Global LLp</h1>
+          <h1 className='text-xl xl:text-5xl'>Flipmaxx Global LLP</h1>
           <p className='text-sm mt-2 max-w-xl mt-6 lg:mt-12'>FLIPMAXX GLOBAL is a dynamic parent company offering end-to-end marketing solutions 
             designed to elevate brands in the modern business landscape. As a 
             comprehensive marketing powerhouse, we specialize in strategy, branding, 
@@ -108,7 +108,7 @@ export default function Landing() {
   
 
     <div className="flex justify-center gap-6">
-      {/* Facebook */}
+ 
       <a
         href="https://www.facebook.com/flipmaxxglobal"
         target="_blank"

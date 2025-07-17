@@ -35,7 +35,7 @@ export default function Navbar() {
     { name: "LinkedIn", icon: <FaLinkedin />, href: "https://linkedin.com/company/flipmaxx" },
   ];
 
-  const companyAddress = "123 Business Park, Sector 22, Gurugram, Haryana 122001, India";
+  const companyAddress = "Mangalassery Tower, Eloor Rd, opposite Ganapathy Temple, North Kalamassery, Kalamassery, Kochi, Kerala 683104";
 
   useEffect(() => {
     tlNavbar.current = gsap.timeline()
