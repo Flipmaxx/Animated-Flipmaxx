@@ -29,10 +29,10 @@ export default function Navbar() {
   ];
 
   const socialLinks = [
-    { name: "Facebook", icon: <FaFacebook />, href: "https://facebook.com/flipmaxx" },
+    { name: "Facebook", icon: <FaFacebook />, href: "https://www.facebook.com/share/19RF6Pg5Mp/" },
     { name: "Twitter", icon: <FaTwitter />, href: "https://twitter.com/flipmaxx" },
-    { name: "Instagram", icon: <FaInstagram />, href: "https://instagram.com/flipmaxx" },
-    { name: "LinkedIn", icon: <FaLinkedin />, href: "https://linkedin.com/company/flipmaxx" },
+    { name: "Instagram", icon: <FaInstagram />, href: "https://www.instagram.com/flipmaxx_global_llp?igsh=MThoZDAzYTZ0ZnN1NA==" },
+    { name: "LinkedIn", icon: <FaLinkedin />, href: "https://www.linkedin.com/company/flipmaxx-global-llp/" },
   ];
 
   const companyAddress = "Mangalassery Tower, Eloor Rd, opposite Ganapathy Temple, North Kalamassery, Kalamassery, Kochi, Kerala 683104";

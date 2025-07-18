@@ -17,16 +17,16 @@ export default function Hero(){
     return(
         <div className="text-6xl overflow-x-hidden">
             <Landing/>
-            <Companies/>
+            {/* <Companies/> */}
             <Servicesh/>
             <Abouth/>
             <WorkingProcessSection/>
             <WhyChoose/>
             <ExpertiseSection/>
            
-            <TeamSection/>
+            {/* <TeamSection/> */}
             <ContactSection/>
-             <TestimonialSection/>
+             {/* <TestimonialSection/> */}
            
             {/* <Linedown/> */}
         </div>

@@ -103,7 +103,7 @@ export default function Contact() {
                 required
               />
               <input
-                type="tel"
+                type="number"
                 name="phone"
                 placeholder="Phone Number"
                 value={formData.phone}

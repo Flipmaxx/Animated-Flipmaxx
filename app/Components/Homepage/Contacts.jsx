@@ -43,7 +43,6 @@ export default function ContactSection() {
     <section className="w-full text-white py-16 bg-white">
       <div className="container mx-auto px-0 md:px-4 xl:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start bg-gradient-to-r from-black to-neutral-900 p-2 md:p-10 rounded-2xl py-7">
-          {/* Left Text */}
           <div className="space-y-6">
             <h2 className="text-3xl sm:text-4xl font-bold leading-snug">
               Wherever You Are, We Can Help <span className="text-white">.</span>
@@ -53,8 +52,6 @@ export default function ContactSection() {
               solutions that drive growth, efficiency, and long-term business success.
             </p>
           </div>
-
-          {/* Form */}
           <form
             onSubmit={handleSubmit}
             className="bg-white rounded-2xl p-6 sm:p-8 space-y-6 text-black shadow-xl w-full"
@@ -83,7 +80,7 @@ export default function ContactSection() {
                 required
               />
               <input
-                type="tel"
+                type="number"
                 name="phone"
                 placeholder="Phone Number"
                 value={formData.phone}
