@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 
-const ALLOWED_ORIGIN = 'https://flipmaxx-global-llp-lemon.vercel.app';
+const ALLOWED_ORIGIN = 'https://flipmaxx.co';
 
 export function middleware(request) {
   const { pathname } = request.nextUrl;
