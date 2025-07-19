@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const teamMembers = [
   {
@@ -25,11 +25,24 @@ const teamMembers = [
     role: 'IT consultant',
     image: '/Images/B.png',
   },
+  {
+    name: 'Sneha Thomas',
+    role: 'Operations',
+    image: '/Images/B.png',
+  },
+  {
+    name: 'Rahul M',
+    role: 'Finance Manager',
+    image: '/Images/B.png',
+  },
 ];
 
 export default function TeamSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleMembers = showAll ? teamMembers : teamMembers.slice(0, 4);
 
   return (
     <section className="w-full bg-white py-16 px-8 sm:px-8 lg:px-20">
@@ -42,7 +55,7 @@ export default function TeamSection() {
           ref={ref}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-20"
         >
-          {teamMembers.map((member, index) => (
+          {visibleMembers.map((member, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -65,10 +78,21 @@ export default function TeamSection() {
           ))}
         </div>
 
+        {!showAll && teamMembers.length > 4 && (
+          <div className="text-center mt-10">
+            <button
+              onClick={() => setShowAll(true)}
+              className="text-black bg-black py-2 px-6 text-white  text-sm font-medium hover:text-gray-100 transition"
+            >
+              View More
+            </button>
+          </div>
+        )}
+
         <p className="text-sm sm:text-base text-gray-600 mt-10 max-w-4xl">
           At FlipMaxx, our team is the heart of everything we do. Comprising experienced professionals,
           creative thinkers, and industry experts, we work collaboratively to deliver exceptional solutions.
-          Each member brings unique strengths and a shared commitment to innovation, quality, and client success —
+          Each member brings unique strengths and a shared commitment to innovation, quality, and client success — 
           driving FlipMaxx forward with passion and purpose every day.
         </p>
       </div>

@@ -39,34 +39,38 @@ export default function AboutSection() {
 
 
 
+<div className="space-y-6">
+  <h2 className="text-lg lg:text-xl xl:text-4xl font-bold text-gray-900 leading-snug">
+    Excellence Across Media, Travel,<br />
+    Business & Real Estate
+  </h2>
 
-        <div className="space-y-6">
-          <h2 className=" text-lg lg:text-xl xl:text-4xl font-bold text-gray-900 leading-snug">
-            Excellence Across Media, Travel,<br />
-            Business & Real Estate
-          </h2>
+  <p className="text-xs lg:text-sm xl:text-base text-gray-800 font-medium leading-relaxed">
+    With over <strong>3 years</strong> of dedicated service, Flipmaxx has completed
+    <strong> 321+ successful projects</strong>, earning <strong>98% positive feedback</strong>.
+    Our commitment to innovation, reliability, and customer satisfaction continues to drive
+    impactful solutions across industries and exceed client expectations globally.
+  </p>
 
-          <p className="text-xs lg:text-sm xl:text-sm text-gray-800 font-medium leading-relaxed">
-            With over <strong>3 years</strong> of dedicated service, Flipmaxx has completed <strong>321+ successful projects</strong>, earning <strong>98% positive feedback</strong>. Our commitment to innovation, reliability, and customer satisfaction continues to drive impactful solutions across industries and exceed client expectations globally.
-          </p>
+  <hr className="border-gray-300" />
 
-          <hr className="border-gray-300" />
+  <p className="text-xs lg:text-sm xl:text-base text-gray-700 leading-relaxed">
+    Flipmaxx is a dynamic service provider specializing in tailored, high-impact solutions
+    across media, travel, business, and real estate. Our proven track record of excellence,
+    with hundreds of successful global projects, reinforces our reputation as a trusted partner
+    for clients seeking quality, efficiency, and innovation.
+  </p>
 
-          <p className="text-xs text-gray-700 text-sm xl:text-sm leading-relaxed">
-            Flipmaxx is a dynamic service provider with over <strong>3 years</strong> of proven excellence. We specialize in delivering innovative, reliable, and tailored solutions across various industries. With <strong>321+ projects completed</strong> and <strong>98% positive client feedback</strong>, Flipmaxx is trusted globally for its commitment to quality, efficiency, and customer satisfaction.
-          </p>
-          <p className="text-xs text-gray-700 text-xs lg:text-sm xl:text-sm leading-relaxed">
-            Flipmaxx is a dynamic service provider with over <strong>3 years</strong> of proven excellence. We specialize in delivering innovative, reliable, and tailored solutions across various industries. With <strong>321+ projects completed</strong> and <strong>98% positive client feedback</strong>, Flipmaxx is trusted globally for its commitment to quality, efficiency, and customer satisfaction.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <button className="bg-black text-white text-base px-6 py-2.5 rounded-md flex items-center gap-2 hover:bg-gray-800 transition">
-              More About Us <ArrowRight size={16} />
-            </button>
-            <a href="#" className="text-black underline text-base">
-              We are always online, Let’s Talk!
-            </a>
-          </div>
-        </div>
+  <div className="flex flex-wrap gap-4 pt-4">
+    <button className="bg-black text-white text-base px-6 py-2.5 rounded-md flex items-center gap-2 hover:bg-gray-800 transition">
+      More About Us <ArrowRight size={16} />
+    </button>
+    <a href="#contact" className="text-black underline text-base">
+      We are always online, Let’s Talk!
+    </a>
+  </div>
+</div>
+
       </div>
     </section>
   );

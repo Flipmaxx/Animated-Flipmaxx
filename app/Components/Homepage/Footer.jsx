@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
           {/* Brand Info */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold">Flipmax</h2>
+            <img src="./Images/LOGOWHITE.png" alt="" />
             <p className="text-gray-400 text-sm leading-relaxed">
               FlipMaxx empowers companies through proven expertise, delivering tailored solutions that drive.
             </p>

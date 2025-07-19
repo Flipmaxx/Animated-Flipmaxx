@@ -2,6 +2,7 @@
 import { BiSolidRightArrow } from "react-icons/bi";
 import Aboutvid from "../Components/AboutComponents/Aboutvid";
 import AboutLetters from "../Components/AboutComponents/AboutLetters";
+import TeamSection from "../Components/Homepage/Meetmyteam";
 
 export default function AboutLanding() {
 
@@ -32,6 +33,8 @@ export default function AboutLanding() {
               </div>
         <Aboutvid/>
         <AboutLetters/>
+        <TeamSection/>
+        
     </div>
   );
 }
