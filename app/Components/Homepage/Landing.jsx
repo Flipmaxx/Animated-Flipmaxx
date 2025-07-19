@@ -110,7 +110,7 @@ export default function Landing() {
     <div className="flex justify-center gap-6">
  
       <a
-        href="https://www.facebook.com/flipmaxxglobal"
+        href="https://www.facebook.com/share/19RF6Pg5Mp/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-white hover:text-blue-500 transition transform hover:scale-110"
@@ -123,7 +123,7 @@ export default function Landing() {
 
       {/* Instagram */}
       <a
-        href="https://www.instagram.com/flipmaxx"
+        href="https://www.instagram.com/flipmaxx_global_llp?igsh=MThoZDAzYTZ0ZnN1NA=="
         target="_blank"
         rel="noopener noreferrer"
         className="text-white hover:text-pink-500 transition transform hover:scale-110"
@@ -136,7 +136,7 @@ export default function Landing() {
 
       {/* LinkedIn */}
       <a
-        href="https://www.linkedin.com/company/flipmaxx"
+        href="https://www.linkedin.com/company/flipmaxx-global-llp/"
         target="_blank"
         rel="noopener noreferrer"
         className="text-white hover:text-blue-300 transition transform hover:scale-110"
