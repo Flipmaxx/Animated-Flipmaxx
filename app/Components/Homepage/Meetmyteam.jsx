@@ -44,7 +44,7 @@ const teamMembers = [
 
   {
     name: 'SHAROOK AZEEZ',
-    role: 'Cinimatographer',
+    role: 'Cinematographer',
     image: '/Images/Sharook.jpg',
   },
     {
