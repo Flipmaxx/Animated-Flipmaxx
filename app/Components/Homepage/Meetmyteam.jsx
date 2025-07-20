@@ -6,34 +6,71 @@ import { useRef, useState } from 'react';
 
 const teamMembers = [
   {
-    name: 'Reliable Performanc',
-    role: 'Human Resource',
-    image: '/Images/B.png',
+    name: 'GAYATHRI BABU ',
+    role: 'Managing Director',
+    image: '/Images/gayathri.jpg',
   },
   {
-    name: 'Jibi p Boby',
-    role: 'Project Coordinator',
-    image: '/Images/B.png',
+    name: 'ADITHYA ANILKUMAR',
+    role: 'Manager',
+    image: '/Images/Aditiya.jpg',
+  },
+    {
+    name: 'ATHIRA GOPAL',
+    role: 'Marketing Manager',
+    image: '/Images/Athira.jpg',
+  },
+    {
+    name: 'ALEENA ROSE',
+    role: 'Administrator',
+    image: '/Images/AleenaRose.jpg',
+  },
+
+  {
+    name: 'ABIJITH PS',
+    role: 'Performance Marketer',
+    image: '/Images/Abhijith.jpg',
+  },
+        {
+    name: 'NIDIN BOSE',
+    role: 'MERN Stack Developer',
+    image: '/Images/Nithin.jpg',
   },
   {
-    name: 'Prasanth PS',
-    role: 'IT consultant',
-    image: '/Images/B.png',
+    name: 'ANTONY BABU',
+    role: 'Senior Editor',
+    image: '/Images/Antonty .jpg',
   },
+
   {
-    name: 'Aiswarya Mohan',
-    role: 'IT consultant',
-    image: '/Images/B.png',
+    name: 'SHAROOK AZEEZ',
+    role: 'Cinimatographer',
+    image: '/Images/Sharook.jpg',
   },
-  {
-    name: 'Sneha Thomas',
-    role: 'Operations',
-    image: '/Images/B.png',
+    {
+    name: 'ALEENA FRANCIS',
+    role: 'Business Development Executive',
+    image: '/Images/Aleena.jpg',
   },
-  {
-    name: 'Rahul M',
-    role: 'Finance Manager',
-    image: '/Images/B.png',
+       {
+    name: 'APARNA J',
+    role: 'Content Creator',
+    image: '/Images/Aparna.jpg',
+  },
+    {
+    name: 'NIJO VJ',
+    role: 'UI/UX Designer',
+    image: '/Images/Nijo.jpg',
+  },
+    {
+    name: 'DEEPAK',
+    role: 'Graphic Designer',
+    image: '/Images/Deepak.jpg',
+  },
+     {
+    name: 'GANESH',
+    role: 'Graphic Designer',
+    image: '/Images/Ganesh.jpg',
   },
 ];
 
@@ -63,7 +100,7 @@ export default function TeamSection() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="text-center"
             >
-              <div className="rounded-xl overflow-hidden mb-4">
+              <div className="rounded-xl overflow-hidden mb-4 grayscale hover:grayscale-0">
                 <Image
                   src={member.image}
                   alt={member.name}
