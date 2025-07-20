@@ -17,7 +17,7 @@ export default function Hero(){
     return(
         <div className="text-6xl overflow-x-hidden">
             <Landing/>
-            <Companies/>
+            {/* <Companies/> */}
             <Servicesh/>
             <Abouth/>
             <WorkingProcessSection/>
@@ -26,7 +26,7 @@ export default function Hero(){
            
             <TeamSection/>
             <ContactSection/>
-             <TestimonialSection/>
+             {/* <TestimonialSection/> */}
            
             {/* <Linedown/> */}
         </div>
