@@ -47,6 +47,11 @@ const teamMembers = [
     role: 'Cinematographer',
     image: '/Images/Sharook.jpg',
   },
+   {
+    name: 'HARIS BIN HUSSAIN',
+    role: 'Travel Consultant',
+    image: '/Images/Haris.jpg',
+  },
     {
     name: 'ALEENA FRANCIS',
     role: 'Business Development Executive',
