@@ -69,7 +69,7 @@ export default function Postings() {
                 <div className="flex flex-col gap-4 text-lg text-gray-700 font-medium">
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-gray-600" />
-                    <span>Experience: {job.experience}</span>
+                    <span>Experience: {job.experience} years</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-gray-600" />
