@@ -47,7 +47,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-black flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 space-y-6">
         <div className="flex justify-center">
-          <img src="/Images/Flip.png" alt="Flipmaxx Logo" className="h-16 w-auto" />
+          <img src="/Images/Flip.png" alt="Flipmaxx Logo" className="h-16 w-auto overflow-hidden" />
         </div>
 
         <h2 className="text-center text-2xl font-bold text-gray-900">Sign in to your account</h2>
