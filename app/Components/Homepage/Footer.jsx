@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Company Information</h3>
             <address className="text-gray-300 text-sm leading-relaxed not-italic">
-              <p>Office: 2025 Mangalassery Tower, Elcor Rd, opposite Ganapathy Temple, North Kalamassery, Kalamassery, Kochi, Kerala 883104</p>
+              <p>Office:Mangalassery Tower, Eloor Rd, opposite Ganapathy Temple, North Kalamassery, Kalamassery, Kochi, Kerala  683104</p>
               <p className="mt-2">Send mail: flipmaxxglobal@gmail.com</p>
               <p>Call us: +91 85902 08940</p>
             </address>
