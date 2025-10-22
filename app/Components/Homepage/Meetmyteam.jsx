@@ -39,7 +39,7 @@ const teamMembers = [
   {
     name: 'ANTONY BABU',
     role: 'Senior Editor',
-    image: '/Images/Antonty .jpg',
+    image: '/Images/Antonty.jpg',
   },
 
   {
