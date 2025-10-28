@@ -58,7 +58,7 @@ export default function Contact() {
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/20" />
-        <div className="relative z-10 flex items-start p-4 justify-start h-full">
+        <div className="relative z-10 flex items-center p-4 justify-center md:justify-start h-full">
           <h2 className="text-white text-3xl font-bold text-start ">Contact us</h2>
         </div>
       </div>
