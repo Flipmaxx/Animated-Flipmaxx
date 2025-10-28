@@ -44,7 +44,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-black text-white py-12 overflow-x-hidden z-0">
+    <section className="bg-black text-white px-3 py-12 overflow-x-hidden z-0">
       <div className="container mx-auto bg-black px-6 md:px-4 lg:px-7 xl:px-2 py-12 rounded-xl">
         <div className="flex items-center gap-4 mb-6">
      
