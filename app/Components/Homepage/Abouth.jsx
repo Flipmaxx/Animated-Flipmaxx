@@ -5,8 +5,8 @@ import { ArrowRight, Award } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section className="w-full px-3 md:px-17 py-9  bg-white ">
-      <div className="container mx-auto flex flex-col xl:flex-row gap-12  ">
+    <section className="w-full px-2 md:px-17 py-9  bg-white ">
+      <div className="container mx-auto flex flex-col xl:flex-row gap-12 px-7 ">
      
      <div className="relative w-AUTO md:max-w-xl lg:max-w-4xl xl:max-w-lg  mx-auto  rounded-xl overflow-visible perspective group">
   <Image
@@ -18,7 +18,7 @@ export default function AboutSection() {
       priority
     />
 
-  <div className="absolute left--30 sm:-left-20 md:left--40 lg:-left--40 xl:-left--12 bottom-[0rem] md:bottom-[2rem] w-[120px] sm:w-[140px] h-36 sm:h-40 text-center [transform-style:preserve-3d] transition-transform duration-700 group-hover:rotate-y-180 z-10 hidden md:inline">
+  <div className="absolute left--30 sm:-left-20 md:left--30 lg:-left--40 xl:-left--12 bottom-[0rem] md:bottom-[2rem] w-[120px] sm:w-[140px] h-36 sm:h-40 text-center [transform-style:preserve-3d] transition-transform duration-700 group-hover:rotate-y-180 z-10 hidden md:inline">
 
     <div className="absolute inset-0 bg-black text-white px-4 py-3 rounded-xl shadow-xl backface-hidden">
       <Award size={24} className="mx-auto mb-1" />
