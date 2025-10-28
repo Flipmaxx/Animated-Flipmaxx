@@ -105,7 +105,7 @@ export default function Landing() {
             className="fixed inset-0 flex items-center justify-center bg-black z-[99]"
           >
             <h2 className="absolute text-sm md:text-2xl xl:text-6xl text-white">
-              From concept to clicks
+              Solution`s that make a difference 
             </h2>
             <div
               ref={squareRef}

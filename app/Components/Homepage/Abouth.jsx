@@ -5,7 +5,7 @@ import { ArrowRight, Award } from 'lucide-react';
 
 export default function AboutSection() {
   return (
-    <section className="w-full px-2 md:px-17 py-9  bg-white ">
+    <section className="w-full px-2 xl:px-17 py-9  bg-white ">
       <div className="container mx-auto flex flex-col xl:flex-row gap-12 px-7 ">
      
      <div className="relative w-AUTO md:max-w-xl lg:max-w-4xl xl:max-w-lg  mx-auto  rounded-xl overflow-visible perspective group">

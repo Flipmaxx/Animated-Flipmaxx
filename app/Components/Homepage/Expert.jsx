@@ -54,7 +54,7 @@ export default function ExpertiseSection() {
           drive growth, efficiency, and long-term business success.
         </motion.p>
 
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 font-medium text-sm sm:text-base">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 font-medium text-sm sm:text-[10px] lg:text-sm">
           {companies.map((company, i) => (
             <motion.div
               key={i}
