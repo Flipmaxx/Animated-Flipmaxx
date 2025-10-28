@@ -92,7 +92,7 @@ export default function ContactSection() {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="border rounded-md px-4 py-3 text-sm outline-none w-full"
+                className="border rounded-md px-4 py-3 text-sm outline-none w-full mr-5"
                 required
               >
                 <option value="">Select Subject</option>

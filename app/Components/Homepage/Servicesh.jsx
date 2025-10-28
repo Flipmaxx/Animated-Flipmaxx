@@ -45,7 +45,7 @@ const services = [
 export default function Services() {
   return (
     <section className="bg-black text-white py-12 overflow-x-hidden z-0">
-      <div className="container mx-auto bg-black px-6 py-12 rounded-xl">
+      <div className="container mx-auto bg-black px-6 md:px-4 lg:px-7 xl:px-2 py-12 rounded-xl">
         <div className="flex items-center gap-4 mb-6">
      
           <div className="flex-1" />
@@ -82,7 +82,7 @@ export default function Services() {
     </div>
 
       
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {services.map((service, index) => {
             const ref = useRef(null);
             const isInView = useInView(ref, { once: true });
@@ -94,7 +94,7 @@ export default function Services() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white group relative text-black text-3xl rounded-md p-6 flex flex-col justify-between min-h-[430px] overflow-hidden"
+                className="bg-white group relative text-black text-3xl rounded-md p-6 flex flex-col justify-between min-h-[370px] overflow-hidden"
               >
           
                 <motion.video
@@ -126,7 +126,7 @@ export default function Services() {
 
              
                 <div className="mt-2 z-0 relative">
-                  <p className="text-sm text-gray-500">{service.description}</p>
+                  <p className="text-[17px] leading-relaxed tracking-wide text-gray-500">{service.description}</p>
                   <hr className="border-black text-black mb-5 mt-5" />
                <a
   href={service.Link}
